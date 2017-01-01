@@ -1,0 +1,7 @@
+[package]
+name = "raytracingv2"
+version = "0.1.0"
+authors = ["Kyle Stachowicz <kylestach99@gmail.com>"]
+
+[dependencies]
+nalgebra = "0.10.*"
