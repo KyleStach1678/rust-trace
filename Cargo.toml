@@ -5,3 +5,4 @@ authors = ["Kyle Stachowicz <kylestach99@gmail.com>"]
 
 [dependencies]
 nalgebra = "0.10.*"
+image = "*"
