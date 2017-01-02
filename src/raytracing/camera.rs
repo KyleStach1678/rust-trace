@@ -26,10 +26,10 @@ fn calculate_fov_components(diagonal_fov: f64, aspect_ratio: f64) -> (f64, f64) 
 
 impl Camera {
     pub fn new(diagonal_fov: f64,
-           aspect_ratio: f64,
-           position: na::Point3<f64>,
-           look: na::Unit<na::Vector3<f64>>)
-           -> Camera {
+               aspect_ratio: f64,
+               position: na::Point3<f64>,
+               look: na::Unit<na::Vector3<f64>>)
+               -> Camera {
         let (up, right) = calculate_basis_vectors(look);
         Camera {
             fov: calculate_fov_components(diagonal_fov, aspect_ratio),
