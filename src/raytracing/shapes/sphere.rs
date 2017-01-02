@@ -85,7 +85,7 @@ mod tests {
         if let Some(intersection) = sphere.intersect(ray) {
             assert!(na::approx_eq(&intersection.hit_distance, &1f64));
             assert!(na::approx_eq(&intersection.normal.unwrap(),
-                                  &na::Vector3::new(1f64, 0f64, 0f64)));
+                                  &na::Vector3::new(-1f64, 0f64, 0f64)));
         } else {
             panic!("Should intersect!");
         }
