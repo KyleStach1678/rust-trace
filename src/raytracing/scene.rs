@@ -2,7 +2,8 @@ extern crate nalgebra as na;
 use raytracing::*;
 
 pub struct Light {
-    pos: na::Vector3<f64>,
+    pub pos: na::Point3<f64>,
+    pub intensity: Color,
 }
 
 pub struct Scene {

@@ -11,11 +11,33 @@ fn main() {
         objects: vec![Box::new(Sphere {
                           origin: na::Point3::new(0f64, 0f64, 0f64),
                           radius: 1f64,
-                          material: Box::new(materials::AmbientMaterial {
-                              color: image::Rgb([255u8, 0u8, 0u8]),
+                          material: Box::new(materials::PhongMaterial {
+                              ambient: Color {
+                                  r: 0.05f64,
+                                  g: 0.05f64,
+                                  b: 0.05f64,
+                              },
+                              diffuse: Color {
+                                  r: 1f64,
+                                  g: 0f64,
+                                  b: 0.5f64,
+                              },
+                              specular: Color {
+                                  r: 1f64,
+                                  g: 1f64,
+                                  b: 1f64,
+                              },
+                              shiny: 5,
                           }),
                       })],
-        lights: vec![],
+        lights: vec![Box::new(Light {
+                         pos: na::Point3::new(3f64, 3f64, 3f64),
+                         intensity: Color {
+                             r: 1f64,
+                             g: 0.5f64,
+                             b: 0.5f64,
+                         },
+                     })],
     };
 
     let camera = Camera::new(f64::consts::PI / 20f64,
