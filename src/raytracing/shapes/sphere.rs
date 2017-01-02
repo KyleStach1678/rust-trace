@@ -38,8 +38,9 @@ impl Trace for Sphere {
 
             // The normal vector is just the intersection's position relative to the origin,
             // normalized.
-            let normal = na::Unit::new(&(ray.direction.unwrap() * dist_to_intersection -
-                                         self.origin.to_vector()));
+            let normal = na::Unit::new(&(ray.origin +
+                                         ray.direction.unwrap() * dist_to_intersection -
+                                         self.origin));
             Some(Intersection {
                 hit_distance: dist_to_intersection,
                 eye_ray: ray,
