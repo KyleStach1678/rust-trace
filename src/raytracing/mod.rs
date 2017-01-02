@@ -16,5 +16,8 @@ pub use self::camera::Camera;
 mod render;
 pub use self::render::render;
 
+mod color;
+pub use self::color::Color;
+
 pub mod shapes;
 pub mod materials;

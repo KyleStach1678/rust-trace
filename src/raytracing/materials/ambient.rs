@@ -1,12 +1,11 @@
-extern crate image;
 pub use raytracing::*;
 
 pub struct AmbientMaterial {
-    pub color: image::Rgb<u8>,
+    pub color: Color,
 }
 
 impl Material for AmbientMaterial {
-    fn surface(&self, _: Intersection, _: &Scene) -> image::Rgb<u8> {
+    fn surface(&self, _: Intersection, _: &Scene) -> Color {
         self.color
     }
 }

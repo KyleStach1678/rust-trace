@@ -54,7 +54,6 @@ impl Trace for Sphere {
 
 #[cfg(test)]
 mod tests {
-    extern crate image;
     use super::na;
     use super::Sphere;
     use raytracing::*;
@@ -62,8 +61,12 @@ mod tests {
     #[derive(Default)]
     struct DummyMaterial;
     impl Material for DummyMaterial {
-        fn surface(&self, _: Intersection, _: &Scene) -> image::Rgb<u8> {
-            image::Rgb([255u8, 0u8, 0u8])
+        fn surface(&self, _: Intersection, _: &Scene) -> Color {
+            Color {
+                r: 1f64,
+                g: 0f64,
+                b: 0f64,
+            }
         }
     }
 

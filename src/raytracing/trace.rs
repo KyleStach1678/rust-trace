@@ -1,5 +1,4 @@
 extern crate nalgebra as na;
-extern crate image;
 use raytracing::*;
 
 #[derive(Clone)]
@@ -19,7 +18,7 @@ struct IntersectedObject<'a> {
     object: &'a Box<Trace>,
 }
 
-pub fn trace<'a>(scene: &'a Scene, eye: Ray) -> image::Rgb<u8> {
+pub fn trace<'a>(scene: &'a Scene, eye: Ray) -> Color {
     let best = scene.objects
         .iter()
         .fold::<Option<IntersectedObject>, _>(None, |intersected_object, new_obj| {
@@ -48,6 +47,10 @@ pub fn trace<'a>(scene: &'a Scene, eye: Ray) -> image::Rgb<u8> {
     if let Some(IntersectedObject { intersection, object }) = best {
         object.material().surface(intersection, scene)
     } else {
-        image::Rgb([0u8, 0u8, 0u8])
+        Color {
+            r: 0f64,
+            g: 0f64,
+            b: 0f64,
+        }
     }
 }
